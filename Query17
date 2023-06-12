@@ -1,0 +1,5 @@
+17. List all the distinct countries to which orders have been shipped
+SELECT DISTINCT Ship_Country
+FROM Orders;
+
+This query selects the ShipCountry column from the Orders table. The DISTINCT keyword is used to retrieve only the unique values of the ShipCountry column.
