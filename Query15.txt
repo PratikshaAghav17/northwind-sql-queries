@@ -1,8 +1,0 @@
-15. Find the total revenue for the year 2016
-SELECT SUM(Order_Details.Quantity * Order_Details.Unit_Price) AS TotalRevenue
-FROM Orders
-JOIN Order_Details ON Orders.Order_ID = Order_Details.Order_ID
-WHERE YEAR(Orders.Order_Date) = 2016;
-
-
-This query involves joining the Orders and OrderDetails tables on the OrderID column. It uses the SUM() function to calculate the total revenue by multiplying the Quantity column with the UnitPrice column from the OrderDetails table.The WHERE clause filters the result to retrieve only the rows where the year in the OrderDate column is 2016.
