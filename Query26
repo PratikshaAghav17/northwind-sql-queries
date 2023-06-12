@@ -1,4 +1,4 @@
-26. Find the customer who has ordered the most ‘Chai’ product
+26. Find the customer who has ordered the most â€˜Chaiâ€™ product
 SELECT Customers.Customer_ID, Customers.Company_Name, SUM(Order_Details.Quantity) AS TotalQuantity
 FROM Customers
 JOIN Orders ON Customers.Customer_ID = Orders.Customer_ID
