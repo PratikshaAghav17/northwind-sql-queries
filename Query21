@@ -1,4 +1,4 @@
-21. Get the list of customers who have ordered ‘Chai’ product
+21. Get the list of customers who have ordered â€˜Chaiâ€™ product
 SELECT DISTINCT Customers.Customer_ID, Customers.Company_Name
 FROM Customers
 JOIN Orders ON Customers.Customer_ID = Orders.Customer_ID
