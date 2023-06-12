@@ -1,4 +1,4 @@
-22. Get the employees who have processed orders for ‘Chai’ product
+22. Get the employees who have processed orders for â€˜Chaiâ€™ product
 SELECT DISTINCT Employees.Employee_ID, Employees.First_Name, Employees.Last_Name
 FROM Employees
 JOIN Orders ON Employees.Employee_ID = Orders.Employee_ID
