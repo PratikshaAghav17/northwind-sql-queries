@@ -1,0 +1,6 @@
+16. List all products that are discontinued
+SELECT Product_ID, Product_Name
+FROM Products
+WHERE Discontinued = 1;
+
+This query selects the ProductID and ProductName columns from the Products table. The WHERE clause filters the result to retrieve only the rows where the Discontinued column is equal to 1, indicating that the product is discontinued.
