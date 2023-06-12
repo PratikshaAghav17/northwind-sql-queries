@@ -1,0 +1,19 @@
+37. Classify products based on their sales volume such that TotalQuantity > 1000 Then SalesCategory as ‘High Sales’. If TotalQuantity>500 Then ‘Medium Sales’ and else ‘Lower Sales’
+
+SELECT Products.Product_ID, Products.Product_Name, 
+    SUM(Order_Details.Quantity) AS TotalQuantity,
+    CASE 
+        WHEN SUM(Order_Details.Quantity) > 1000 THEN 'High Sales'
+        WHEN SUM(Order_Details.Quantity) > 500 THEN 'Medium Sales'
+        ELSE 'Lower Sales'
+    END AS SalesCategory
+FROM Products
+JOIN Order_Details ON Products.Product_ID = Order_Details.Product_ID
+GROUP BY Products.Product_ID, Products.Product_Name
+ORDER BY TotalQuantity DESC;
+
+
+This query involves joining the Products and OrderDetails tables. It calculates the total quantity sold for each product by summing the Quantity column from the OrderDetails table.
+The CASE statement is used to classify products based on their sales volume into different categories: 'High Sales', 'Medium Sales', and 'Lower Sales'. It compares the total quantity sold with specific thresholds and assigns the corresponding category based on the conditions provided.
+The results are grouped by ProductID and ProductName, and the total quantity and sales category are calculated for each product.
+The results are then sorted in descending order based on the total quantity using the ORDER BY clause.

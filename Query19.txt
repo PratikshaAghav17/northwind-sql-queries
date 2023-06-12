@@ -1,0 +1,11 @@
+19. Find the customers who have spent more than $5000 in total
+SELECT Customers.Customer_ID, Customers.Company_Name, SUM(Order_Details.Quantity * Order_Details.Unit_Price) AS TotalSpent
+FROM Customers
+JOIN Orders ON Customers.Customer_ID = Orders.Customer_ID
+JOIN Order_Details ON Orders.Order_ID = Order_Details.Order_ID
+GROUP BY Customers.Customer_ID, Customers.Company_Name
+HAVING TotalSpent > 5000;
+
+This query involves joining the Customers, Orders, and OrderDetails tables. It matches the CustomerID column between the Customers and Orders tables, and the OrderID column between the Orders and OrderDetails tables.
+The SUM() function is used to calculate the total amount spent by each customer by multiplying the Quantity column with the UnitPrice column from the OrderDetails table.
+The results are grouped by CustomerID and CompanyName, and the HAVING clause is used to filter the result and retrieve only the customers with a total amount spent greater than $5000.

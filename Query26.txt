@@ -1,0 +1,17 @@
+26. Find the customer who has ordered the most ‘Chai’ product
+SELECT Customers.Customer_ID, Customers.Company_Name, SUM(Order_Details.Quantity) AS TotalQuantity
+FROM Customers
+JOIN Orders ON Customers.Customer_ID = Orders.Customer_ID
+JOIN Order_Details ON Orders.Order_ID = Order_Details.Order_ID
+JOIN Products ON Order_Details.Product_ID = Products.Product_ID
+WHERE Products.Product_Name = 'Chai'
+GROUP BY Customers.Customer_ID, Customers.Company_Name
+ORDER BY TotalQuantity DESC
+LIMIT 1;
+
+
+This query involves joining the Customers, Orders, OrderDetails, and Products tables. It matches the CustomerID column between the Customers and Orders tables, the OrderID column between the Orders and OrderDetails tables, and the ProductID column between the OrderDetails and Products tables.
+The WHERE clause is used to filter the result and retrieve only the rows where the ProductName in the Products table is 'Chai'.
+The results are grouped by CustomerID and CompanyName. The SUM() function is used to calculate the total quantity of 'Chai' products ordered by each customer.
+The results are then sorted in descending order based on the total quantity using the ORDER BY clause.
+The LIMIT 1 statement is used to retrieve only the first row, which represents the customer who has ordered the most 'Chai' product.

@@ -1,0 +1,10 @@
+23. Find the most common shipping country
+SELECT Ship_Country, COUNT(*) AS ShipmentCount
+FROM Orders
+GROUP BY Ship_Country
+ORDER BY ShipmentCount DESC
+LIMIT 1;
+
+This query selects the ShipCountry column from the Orders table and uses the COUNT(*) function to count the number of occurrences for each unique shipping country.
+The results are grouped by ShipCountry and then sorted in descending order based on the shipment count using the ORDER BY clause.
+The LIMIT 1 statement is used to retrieve only the first row, which represents the most common shipping country with the highest shipment count.

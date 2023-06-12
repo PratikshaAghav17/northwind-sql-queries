@@ -1,0 +1,8 @@
+18. Find all employees who report to ‘Andrew Fuller’
+SELECT E.Employee_ID, E.First_Name, E.Last_Name
+FROM Employees AS E
+JOIN Employees AS Manager ON E.Reports_To = Manager.Employee_ID
+WHERE Manager.First_Name = 'Andrew' AND Manager.Last_Name = 'Fuller';
+
+This query involves joining the Employees table with itself, creating a self-join. It matches the ReportsTo column of the employees with the EmployeeID column of the manager.
+The WHERE clause is used to filter the result to retrieve only the rows where the manager's first name is 'Andrew' and last name is 'Fuller'.

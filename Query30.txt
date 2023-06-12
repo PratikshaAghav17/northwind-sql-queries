@@ -1,0 +1,14 @@
+30. Find the employee who processed the most orders in August 2016
+SELECT Employees.Employee_ID, Employees.First_Name, Employees.Last_Name, COUNT(Orders.Order_ID) AS OrderCount
+FROM Employees
+JOIN Orders ON Employees.Employee_ID = Orders.Employee_ID
+WHERE MONTH(Orders.Order_Date) = 8 AND YEAR(Orders.Order_Date) = 2016
+GROUP BY Employees.Employee_ID, Employees.First_Name, Employees.Last_Name
+ORDER BY OrderCount DESC
+LIMIT 1;
+
+
+This query involves joining the Employees and Orders tables on the EmployeeID column. The COUNT() function is used to calculate the number of orders processed by each employee, based on the OrderID column from the Orders table.
+The WHERE clause is used to filter the result and retrieve only the orders placed in August 2016.
+The results are grouped by EmployeeID, FirstName, and LastName. The ORDER BY clause sorts the result in descending order based on the order count.
+The LIMIT 1 statement is used to retrieve only the first row, which represents the employee who processed the most orders in August 2016.

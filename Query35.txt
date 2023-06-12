@@ -1,0 +1,11 @@
+35. Find the total sales for each year
+SELECT YEAR(Orders.Order_Date) AS OrderYear, SUM(Order_Details.Quantity * Order_Details.Unit_Price) AS TotalSales
+FROM Orders
+JOIN Order_Details ON Orders.Order_ID = Order_Details.Order_ID
+GROUP BY OrderYear
+ORDER BY OrderYear;
+
+This query involves joining the Orders and OrderDetails tables on the OrderID column. The SUM() function is used to calculate the total sales by multiplying the Quantity column with the UnitPrice column from the OrderDetails table.
+The YEAR() function is used to extract the year from the OrderDate column in the Orders table.
+The results are then grouped by OrderYear, and the total sales are calculated for each year.
+The ORDER BY clause sorts the results in ascending order based on the OrderYear.

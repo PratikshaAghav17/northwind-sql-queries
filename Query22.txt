@@ -1,0 +1,11 @@
+22. Get the employees who have processed orders for ‘Chai’ product
+SELECT DISTINCT Employees.Employee_ID, Employees.First_Name, Employees.Last_Name
+FROM Employees
+JOIN Orders ON Employees.Employee_ID = Orders.Employee_ID
+JOIN Order_Details ON Orders.Order_ID = Order_Details.Order_ID
+JOIN Products ON Order_Details.Product_ID = Products.Product_ID
+WHERE Products.Product_Name = 'Chai';
+
+
+This query involves joining the Employees, Orders, OrderDetails, and Products tables. It matches the EmployeeID column between the Employees and Orders tables, the OrderID column between the Orders and OrderDetails tables, and the ProductID column between the OrderDetails and Products tables.
+The WHERE clause is used to filter the result and retrieve only the rows where the ProductName in the Products table is 'Chai'.

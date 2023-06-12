@@ -1,0 +1,14 @@
+28. Find the top 3 most popular categories of products ordered
+SELECT Categories.Category_Name, COUNT(*) AS OrderCount
+FROM Categories
+JOIN Products ON Categories.Category_ID = Products.Category_ID
+JOIN Order_Details ON Products.Product_ID = Order_Details.Product_ID
+GROUP BY Categories.Category_Name
+ORDER BY OrderCount DESC
+LIMIT 3;
+
+
+This query involves joining the Categories, Products, and OrderDetails tables. It matches the CategoryID column between the Categories and Products tables, and the ProductID column between the Products and OrderDetails tables.
+The COUNT(*) function is used to count the number of occurrences for each unique category of products ordered.
+The results are grouped by CategoryName and then sorted in descending order based on the order count using the ORDER BY clause.
+The LIMIT 3 statement is used to retrieve only the top 3 rows, which represent the most popular categories of products ordered.

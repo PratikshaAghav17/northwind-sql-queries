@@ -1,0 +1,8 @@
+27. Find the average quantity of products ordered in each order
+SELECT Orders.Order_ID, AVG(Order_Details.Quantity) AS AverageQuantity
+FROM Orders
+JOIN Order_Details ON Orders.Order_ID = Order_Details.Order_ID
+GROUP BY Orders.Order_ID;
+
+
+This query involves joining the Orders and OrderDetails tables on the OrderID column. The AVG() function is used to calculate the average quantity of products ordered in each order, based on the Quantity column from the OrderDetails table.

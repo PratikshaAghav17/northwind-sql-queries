@@ -1,0 +1,12 @@
+14. Find the most expensive product in each category
+SELECT C.Category_ID, C.Category_Name, P.Product_ID, P.Product_Name, P.Unit_Price
+FROM (
+  SELECT Category_ID, MAX(Unit_Price) AS MaxPrice
+  FROM Products
+  GROUP BY Category_ID
+) AS MaxPrices
+JOIN Products AS P ON MaxPrices.Category_ID = P.Category_ID AND MaxPrices.MaxPrice = P.Unit_Price
+JOIN Categories AS C ON P.Category_ID = C.Category_ID;
+
+
+This query involves multiple steps. Firstly, in the subquery, it selects the CategoryID and the maximum UnitPrice for each category from the Products table using the MAX() function and grouping by CategoryID.Then, the result of the subquery is joined with the Products table based on matching CategoryID and UnitPrice columns to retrieve the product information with the maximum price in each category.Finally, the Categories table is joined to fetch the category name associated with each product.

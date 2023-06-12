@@ -1,0 +1,14 @@
+31. Find the top 3 customers who have ordered the most products
+SELECT Customers.Customer_ID, Customers.Company_Name, COUNT(Order_Details.Product_ID) AS ProductCount
+FROM Customers
+JOIN Orders ON Customers.Customer_ID = Orders.Customer_ID
+JOIN Order_Details ON Orders.Order_ID = Order_Details.Order_ID
+GROUP BY Customers.Customer_ID, Customers.Company_Name
+ORDER BY ProductCount DESC
+LIMIT 3;
+
+This query involves joining the Customers, Orders, and OrderDetails tables. It matches the CustomerID column between the Customers and Orders tables, and the OrderID column between the Orders and OrderDetails tables.
+The COUNT(OrderDetails.ProductID) function is used to count the number of products ordered by each customer.
+The results are grouped by CustomerID and CompanyName, and the product count is calculated for each customer.
+The results are then sorted in descending order based on the product count using the ORDER BY clause.
+The LIMIT 3 statement is used to retrieve only the top 3 rows, which represent the customers who have ordered the most products.
