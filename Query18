@@ -1,4 +1,4 @@
-18. Find all employees who report to ‘Andrew Fuller’
+18. Find all employees who report to â€˜Andrew Fullerâ€™
 SELECT E.Employee_ID, E.First_Name, E.Last_Name
 FROM Employees AS E
 JOIN Employees AS Manager ON E.Reports_To = Manager.Employee_ID
