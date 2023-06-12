@@ -1,7 +1,7 @@
 
 
 
-2.Find all suppliers who provide products in the ‘Seafood’ category
+2.Find all suppliers who provide products in the â€˜Seafoodâ€™ category
 
 SELECT DISTINCT Suppliers.Supplier_ID, Suppliers.Company_Name
 FROM Suppliers
